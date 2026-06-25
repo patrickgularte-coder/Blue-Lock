@@ -1,157 +1,382 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog Blue Lock</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog Blue Lock</title>
 
-  <link rel="stylesheet" href="style.css">
+<style>
+/* =========================
+RESET
+========================= */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#050914;
+    color:white;
+    line-height:1.7;
+    overflow-x:hidden;
+}
+
+/* =========================
+FUNDO ANIMADO (FLOW)
+========================= */
+body::before{
+    content:"";
+    position:fixed;
+    width:200%;
+    height:200%;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(0,212,255,0.15), transparent 30%),
+        radial-gradient(circle at 80% 30%, rgba(0,100,255,0.15), transparent 35%),
+        radial-gradient(circle at 50% 80%, rgba(0,255,200,0.10), transparent 40%);
+    animation:moveBg 12s infinite linear;
+    z-index:-1;
+}
+
+@keyframes moveBg{
+    0%{transform:translate(0,0);}
+    50%{transform:translate(-10%, -10%);}
+    100%{transform:translate(0,0);}
+}
+
+/* =========================
+HEADER
+========================= */
+header{
+    text-align:center;
+    padding:70px 20px;
+    background:linear-gradient(90deg,#001f54,#003566,#0077ff);
+    animation:fadeDown 1s ease;
+}
+
+header h1{
+    font-size:3rem;
+}
+
+header p{
+    opacity:0.8;
+}
+
+/* =========================
+MENU GLASS
+========================= */
+nav{
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:15px;
+
+    padding:15px;
+
+    background:rgba(17,24,39,0.6);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#00d4ff;
+    transform:scale(1.1);
+}
+
+/* =========================
+SEÇÕES
+========================= */
+section{
+    padding:60px 10%;
+    animation:fadeUp 0.8s ease;
+}
+
+h2{
+    color:#00d4ff;
+    margin-bottom:20px;
+}
+
+/* =========================
+CARDS
+========================= */
+.card{
+    background:rgba(17,24,39,0.85);
+    padding:25px;
+    border-radius:15px;
+    margin-bottom:20px;
+    box-shadow:0 0 15px rgba(0,212,255,0.2);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 0 25px rgba(0,212,255,0.5);
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.personagem img{
+    width:100%;
+    height:320px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+/* =========================
+BANNER
+========================= */
+.banner{
+    width:100%;
+    border-radius:12px;
+    margin-bottom:15px;
+}
+
+/* =========================
+RANKING INTERATIVO
+========================= */
+.ranking-item{
+    display:flex;
+    justify-content:space-between;
+    padding:12px;
+    border-bottom:1px solid rgba(255,255,255,0.1);
+    transition:0.3s;
+}
+
+.ranking-item:hover{
+    background:rgba(0,212,255,0.1);
+    transform:scale(1.02);
+}
+
+.pos{
+    color:#00d4ff;
+    font-weight:bold;
+}
+
+/* =========================
+ANIMAÇÕES
+========================= */
+@keyframes fadeUp{
+    from{opacity:0; transform:translateY(20px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+@keyframes fadeDown{
+    from{opacity:0; transform:translateY(-30px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+/* =========================
+RESPONSIVO
+========================= */
+@media(max-width:768px){
+    header h1{
+        font-size:2rem;
+    }
+
+    section{
+        padding:40px 5%;
+    }
+
+    .personagem img{
+        height:240px;
+    }
+}
+</style>
+
 </head>
 
 <body>
 
 <header>
-  <h1>Blog Blue Lock</h1>
-  <p>O projeto para criar o maior atacante egoísta do mundo</p>
+    <h1>⚽ Blue Lock Blog</h1>
+    <p>O nascimento do atacante egoísta perfeito</p>
 </header>
 
 <nav>
-  <a href="#historia">História</a>
-  <a href="#personagens">Personagens</a>
-  <a href="#habilidades">Habilidades</a>
-  <a href="#ranking">Ranking</a>
+    <a href="#historia">História</a>
+    <a href="#personagens">Personagens</a>
+    <a href="#fluxo">Flow</a>
+    <a href="#jogadores-flow">Flow Players</a>
+    <a href="#sub20">Sub-20</a>
+    <a href="#metavision">Metavision</a>
+    <a href="#nel">NEL</a>
+    <a href="#kaiser">Kaiser</a>
+    <a href="#noa">Noel Noa</a>
+    <a href="#ego">Ego</a>
+    <a href="#ranking">Ranking</a>
 </nav>
 
 <!-- HISTÓRIA -->
 <section id="historia">
-  <h2>História de Blue Lock</h2>
-  <div class="card">
-    <p>
-      Blue Lock é um projeto criado após a seleção japonesa fracassar na Copa do Mundo.
-      300 atacantes são reunidos em um sistema brutal onde apenas um poderá sobreviver
-      e se tornar o maior atacante do mundo.
-    </p>
-  </div>
+<div class="card">
+<h2>História</h2>
+<p>
+Após o fracasso do Japão na Copa, nasce o Blue Lock para criar o melhor atacante do mundo.
+</p>
+</div>
 </section>
 
 <!-- PERSONAGENS -->
 <section id="personagens">
-  <h2>Personagens Principais</h2>
+<h2>Personagens</h2>
 
-  <div class="grid">
+<div class="grid">
 
-    <div class="card personagem">
-      <img src="imagens/isagi.jpg" alt="Isagi Yoichi">
-      <h3>Yoichi Isagi</h3>
-      <p>Visão de jogo e leitura perfeita do campo.</p>
-    </div>
+<div class="card personagem">
+<img src="imagens/isagi.jpg">
+<h3>Isagi</h3>
+</div>
 
-    <div class="card personagem">
-      <img src="imagens/rin.jpg" alt="Rin Itoshi">
-      <h3>Rin Itoshi</h3>
-      <p>Técnico, frio e extremamente dominante.</p>
-    </div>
+<div class="card personagem">
+<img src="imagens/rin.jpg">
+<h3>Rin</h3>
+</div>
 
-    <div class="card personagem">
-      <img src="imagens/bachira.jpg" alt="Meguru Bachira">
-      <h3>Meguru Bachira</h3>
-      <p>Dribles criativos e instinto selvagem.</p>
-    </div>
+<div class="card personagem">
+<img src="imagens/bachira.jpg">
+<h3>Bachira</h3>
+</div>
 
-    <div class="card personagem">
-      <img src="imagens/barou.jpg" alt="Shouei Barou">
-      <h3>Shouei Barou</h3>
-      <p>O “Rei” com chute e força absurda.</p>
-    </div>
+<div class="card personagem">
+<img src="imagens/barou.jpg">
+<h3>Barou</h3>
+</div>
 
-  </div>
+</div>
 </section>
 
-<!-- HABILIDADES -->
-<section id="habilidades">
-  <h2>Habilidades</h2>
+<!-- FLOW -->
+<section id="fluxo">
+<div class="card">
+<h2>Flow</h2>
+<p>
+Estado de desempenho máximo onde o jogador ultrapassa seus limites.
+</p>
+</div>
+</section>
 
-  <div class="card">
-    <ul>
-      <li><strong>Metavision:</strong> leitura total do jogo.</li>
-      <li><strong>Drible Instintivo:</strong> movimentos imprevisíveis.</li>
-      <li><strong>Chute Explosivo:</strong> finalizações poderosas.</li>
-      <li><strong>Adaptação Rápida:</strong> evolução em tempo real.</li>
-    </ul>
-  </div>
+<!-- FLOW PLAYERS -->
+<section id="jogadores-flow">
+<h2>Jogadores em Flow</h2>
+
+<div class="grid">
+
+<div class="card personagem">
+<img src="imagens/isagi-flow.jpg">
+<h3>Isagi</h3>
+</div>
+
+<div class="card personagem">
+<img src="imagens/rin-flow.jpg">
+<h3>Rin</h3>
+</div>
+
+<div class="card personagem">
+<img src="imagens/bachira-flow.jpg">
+<h3>Bachira</h3>
+</div>
+
+<div class="card personagem">
+<img src="imagens/barou-flow.jpg">
+<h3>Barou</h3>
+</div>
+
+</div>
+</section>
+
+<!-- SUB 20 -->
+<section id="sub20">
+<div class="card">
+<h2>Blue Lock vs Sub-20</h2>
+
+<img src="imagens/blue-lock-vs-sub20.jpg" class="banner">
+
+<p>
+Partida decisiva onde Isagi marca o gol da vitória.
+</p>
+</div>
+</section>
+
+<!-- METAVISION -->
+<section id="metavision">
+<div class="card">
+<h2>Metavision</h2>
+<p>Leitura total do campo e previsão de jogadas.</p>
+</div>
+</section>
+
+<!-- NEL -->
+<section id="nel">
+<div class="card">
+<h2>Neo Egoist League</h2>
+<p>Fase internacional de evolução dos jogadores.</p>
+</div>
+</section>
+
+<!-- KAISER -->
+<section id="kaiser">
+<div class="card">
+<h2>Michael Kaiser</h2>
+<img src="imagens/kaiser.jpg" class="banner">
+<p>Rival de Isagi no Bastard München.</p>
+</div>
+</section>
+
+<!-- NOA -->
+<section id="noa">
+<div class="card">
+<h2>Noel Noa</h2>
+<img src="imagens/noel-noa.jpg" class="banner">
+<p>Melhor atacante do mundo.</p>
+</div>
+</section>
+
+<!-- EGO -->
+<section id="ego">
+<div class="card">
+<h2>Ego Jinpachi</h2>
+<img src="imagens/ego-jinpachi.jpg" class="banner">
+<p>Criador do projeto Blue Lock.</p>
+</div>
 </section>
 
 <!-- RANKING -->
 <section id="ranking">
-  <h2>Ranking Blue Lock (TOP 10)</h2>
+<h2>Ranking</h2>
 
-  <div class="card">
+<div class="card">
 
-    <div class="ranking-item">
-      <span class="pos">1</span>
-      <span class="name">Rin Itoshi</span>
-      <span class="desc">Domínio técnico absoluto</span>
-    </div>
+<div class="ranking-item"><span class="pos">1</span> Rin</div>
+<div class="ranking-item"><span class="pos">2</span> Barou</div>
+<div class="ranking-item"><span class="pos">3</span> Isagi</div>
+<div class="ranking-item"><span class="pos">4</span> Bachira</div>
+<div class="ranking-item"><span class="pos">5</span> Nagi</div>
 
-    <div class="ranking-item">
-      <span class="pos">2</span>
-      <span class="name">Shouei Barou</span>
-      <span class="desc">O Rei egoísta</span>
-    </div>
-
-    <div class="ranking-item">
-      <span class="pos">3</span>
-      <span class="name">Yoichi Isagi</span>
-      <span class="desc">Evolução e leitura de jogo</span>
-    </div>
-
-    <div class="ranking-item">
-      <span class="pos">4</span>
-      <span class="name">Meguru Bachira</span>
-      <span class="desc">Drible imprevisível</span>
-    </div>
-
-    <div class="ranking-item">
-      <span class="pos">5</span>
-      <span class="name">Seishiro Nagi</span>
-      <span class="desc">Controle absurdo de bola</span>
-    </div>
-
-    <div class="ranking-item">
-      <span class="pos">6</span>
-      <span class="name">Reo Mikage</span>
-      <span class="desc">Versatilidade total</span>
-    </div>
-
-    <div class="ranking-item">
-      <span class="pos">7</span>
-      <span class="name">Hyoma Chigiri</span>
-      <span class="desc">Velocidade explosiva</span>
-    </div>
-
-    <div class="ranking-item">
-      <span class="pos">8</span>
-      <span class="name">Aoshi Tokimitsu</span>
-      <span class="desc">Força física extrema</span>
-    </div>
-
-    <div class="ranking-item">
-      <span class="pos">9</span>
-      <span class="name">Jingo Raichi</span>
-      <span class="desc">Marcação agressiva</span>
-    </div>
-
-    <div class="ranking-item">
-      <span class="pos">10</span>
-      <span class="name">Gagamaru Gin</span>
-      <span class="desc">Reflexos de goleiro</span>
-    </div>
-
-  </div>
+</div>
 </section>
 
-<footer>
-  <p>Blog Blue Lock • HTML + CSS</p>
+<footer class="card" style="text-align:center;">
+Blue Lock Blog • Versão Flow
 </footer>
 
 </body>
