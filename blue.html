@@ -6,14 +6,11 @@
 <title>Blue Lock Blog</title>
 
 <style>
-/* =========================
-RESET
-========================= */
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family:Arial;
 }
 
 body{
@@ -22,13 +19,12 @@ body{
     transition:0.4s;
 }
 
-/* LIGHT MODE */
 body.light{
-    background:#f5f7ff;
+    background:#f4f6ff;
     color:#111;
 }
 
-/* FUNDO ANIMADO FLOW */
+/* FUNDO FLOW */
 body::before{
     content:"";
     position:fixed;
@@ -59,18 +55,17 @@ header h1{
     font-size:2.8rem;
 }
 
-/* NAV GLASS */
+/* NAV */
 nav{
     position:sticky;
     top:0;
     display:flex;
     justify-content:center;
-    gap:15px;
     flex-wrap:wrap;
+    gap:10px;
     padding:15px;
     background:rgba(17,24,39,0.6);
     backdrop-filter:blur(10px);
-    z-index:1000;
 }
 
 nav a{
@@ -86,6 +81,11 @@ nav a:hover{
 /* SEÇÕES */
 section{
     padding:60px 10%;
+}
+
+h2{
+    color:#00d4ff;
+    margin-bottom:20px;
 }
 
 /* CARD */
@@ -111,7 +111,6 @@ section{
 /* PERSONAGEM */
 .personagem{
     cursor:pointer;
-    transition:0.3s;
 }
 
 .personagem img{
@@ -119,9 +118,8 @@ section{
     border-radius:10px;
 }
 
-/* FLOW BRILHO */
 .flow{
-    box-shadow:0 0 25px #00d4ff;
+    box-shadow:0 0 20px #00d4ff;
 }
 
 /* RANKING */
@@ -132,34 +130,15 @@ section{
     border-bottom:1px solid #333;
 }
 
-/* POWER BAR */
-.bar{
-    width:100%;
-    height:10px;
-    background:#333;
-    border-radius:10px;
-    margin-top:5px;
-}
-
-.bar-fill{
-    height:10px;
-    background:#00d4ff;
-    border-radius:10px;
-}
-
 /* BOTÕES */
 .btn{
     padding:10px 15px;
     border:none;
-    cursor:pointer;
     border-radius:8px;
-    margin:5px;
+    cursor:pointer;
     background:#0077ff;
     color:white;
-}
-
-.btn:hover{
-    opacity:0.8;
+    margin:5px;
 }
 
 /* MODAL */
@@ -179,23 +158,52 @@ section{
     width:300px;
 }
 
+/* BAR */
+.bar{
+    height:10px;
+    background:#333;
+    border-radius:10px;
+}
+
+.bar-fill{
+    height:10px;
+    background:#00d4ff;
+    border-radius:10px;
+}
+
 </style>
 </head>
 
 <body>
 
 <header>
-    <h1>⚽ Blue Lock Blog</h1>
-    <p>O atacante egoísta perfeito</p>
+<h1>⚽ Blue Lock Blog</h1>
+<p>O maior projeto de atacante egoísta do mundo</p>
 
-    <button class="btn" onclick="toggleTheme()">🌗 Tema</button>
-    <button class="btn" onclick="toggleMusic()">🎧 Música</button>
+<button class="btn" onclick="toggleTheme()">🌗 Tema</button>
+<button class="btn" onclick="toggleMusic()">🎧 Música</button>
 </header>
 
 <nav>
+<a href="#historia">História</a>
 <a href="#personagens">Personagens</a>
+<a href="#fluxo">Flow</a>
+<a href="#sub20">Sub-20</a>
+<a href="#metavision">Metavision</a>
+<a href="#nel">NEL</a>
+<a href="#kaiser">Kaiser</a>
+<a href="#noa">Noel Noa</a>
+<a href="#ego">Ego</a>
 <a href="#ranking">Ranking</a>
 </nav>
+
+<!-- HISTÓRIA -->
+<section id="historia">
+<div class="card">
+<h2>História</h2>
+<p>Projeto criado após o fracasso do Japão na Copa para formar o maior atacante do mundo.</p>
+</div>
+</section>
 
 <!-- PERSONAGENS -->
 <section id="personagens">
@@ -205,19 +213,84 @@ section{
 
 <div class="card personagem flow" onclick="openChar('Isagi',95)">
 <img src="imagens/isagi.jpg">
-<p>Isagi</p>
+<h3>Isagi</h3>
 </div>
 
 <div class="card personagem" onclick="openChar('Rin',98)">
 <img src="imagens/rin.jpg">
-<p>Rin</p>
+<h3>Rin</h3>
 </div>
 
 <div class="card personagem flow" onclick="openChar('Bachira',92)">
 <img src="imagens/bachira.jpg">
-<p>Bachira</p>
+<h3>Bachira</h3>
 </div>
 
+<div class="card personagem" onclick="openChar('Barou',93)">
+<img src="imagens/barou.jpg">
+<h3>Barou</h3>
+</div>
+
+</div>
+</section>
+
+<!-- FLOW -->
+<section id="fluxo">
+<div class="card">
+<h2>Flow</h2>
+<p>Estado de performance máxima do jogador.</p>
+</div>
+</section>
+
+<!-- SUB20 -->
+<section id="sub20">
+<div class="card">
+<h2>Blue Lock vs Sub-20</h2>
+<img src="imagens/blue-lock-vs-sub20.jpg">
+<p>Isagi marca o gol da vitória e salva o projeto.</p>
+</div>
+</section>
+
+<!-- METAVISION -->
+<section id="metavision">
+<div class="card">
+<h2>Metavision</h2>
+<p>Leitura total do campo e previsão de jogadas.</p>
+</div>
+</section>
+
+<!-- NEL -->
+<section id="nel">
+<div class="card">
+<h2>Neo Egoist League</h2>
+<p>Fase internacional com clubes europeus.</p>
+</div>
+</section>
+
+<!-- KAISER -->
+<section id="kaiser">
+<div class="card">
+<h2>Michael Kaiser</h2>
+<img src="imagens/kaiser.jpg">
+<p>Maior rival de Isagi na NEL.</p>
+</div>
+</section>
+
+<!-- NOA -->
+<section id="noa">
+<div class="card">
+<h2>Noel Noa</h2>
+<img src="imagens/noel-noa.jpg">
+<p>Melhor atacante do mundo.</p>
+</div>
+</section>
+
+<!-- EGO -->
+<section id="ego">
+<div class="card">
+<h2>Ego Jinpachi</h2>
+<img src="imagens/ego-jinpachi.jpg">
+<p>Criador do Blue Lock.</p>
 </div>
 </section>
 
@@ -229,17 +302,17 @@ section{
 <div class="ranking-item"><span>1</span> Rin</div>
 <div class="ranking-item"><span>2</span> Barou</div>
 <div class="ranking-item"><span>3</span> Isagi</div>
+<div class="ranking-item"><span>4</span> Bachira</div>
 </div>
+
 </section>
 
 <!-- MODAL -->
 <div class="modal" id="modal">
 <div class="modal-content">
-<h2 id="charName"></h2>
-<p>Power Level:</p>
-<div class="bar">
-<div class="bar-fill" id="bar"></div>
-</div>
+<h2 id="name"></h2>
+<p>Power:</p>
+<div class="bar"><div class="bar-fill" id="fill"></div></div>
 <br>
 <button class="btn" onclick="closeModal()">Fechar</button>
 </div>
@@ -247,35 +320,33 @@ section{
 
 <!-- AUDIO -->
 <audio id="music" loop>
-<source src="imagens/music.mp3" type="audio/mp3">
+<source src="imagens/music.mp3">
 </audio>
 
 <script>
-let musicPlaying = false;
+
+let playing=false;
 
 function toggleMusic(){
-    let music = document.getElementById("music");
-    if(musicPlaying){
-        music.pause();
-    }else{
-        music.play();
-    }
-    musicPlaying = !musicPlaying;
+let m=document.getElementById("music");
+playing?m.pause():m.play();
+playing=!playing;
 }
 
 function toggleTheme(){
-    document.body.classList.toggle("light");
+document.body.classList.toggle("light");
 }
 
-function openChar(name, power){
-    document.getElementById("modal").style.display="flex";
-    document.getElementById("charName").innerText=name;
-    document.getElementById("bar").style.width=power+"%";
+function openChar(name,power){
+document.getElementById("modal").style.display="flex";
+document.getElementById("name").innerText=name;
+document.getElementById("fill").style.width=power+"%";
 }
 
 function closeModal(){
-    document.getElementById("modal").style.display="none";
+document.getElementById("modal").style.display="none";
 }
+
 </script>
 
 </body>
